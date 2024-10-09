@@ -3,19 +3,23 @@ import * as React from 'react';
 
 interface Props {
   movie: MovieTypes[]
+  onDeleteMovie: (id: string) => void
 }
-const MovieItem: React.FC<Props> = ({movie}) => {
+const MovieItem: React.FC<Props> = ({movie, onDeleteMovie}) => {
 
   console.log(movie)
   return (
     <>
       {movie.map((item) => (
-        <div className="card w-25 m-auto mt-4">
+        <div key={item.id + item.number} className="card w-25 m-auto mt-4">
           <div className="card-header">
-            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button key={item.id}
+                    type="button"
+                    className="btn-close"
+                    onClick={() => onDeleteMovie(item.id)}></button>
           </div>
           <div className="card-body">
-            <label htmlFor="title">Title</label>
+            <label key={crypto.randomUUID()} htmlFor="title">Title</label>
             <input type="text"
                    className="w-100"
                    key={item.id}
@@ -24,7 +28,6 @@ const MovieItem: React.FC<Props> = ({movie}) => {
             />
           </div>
         </div>
-
       ))}
     </>
   );

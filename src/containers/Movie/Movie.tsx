@@ -10,11 +10,17 @@ const Movie = () => {
   const addNewMovie = (newMovie: MovieTypes) => {
     setMovies((prevState) => [...prevState, newMovie]);
   }
+
+  const deleteMovieCard = (id: string) => {
+    const copyMovie = movies.filter(movie => movie.id !== id);
+
+    setMovies(copyMovie);
+  };
   return (
     <>
       <div className='container'>
         <MovieForm addNewMovie={addNewMovie} />
-        <MovieItem movie={movies}/>
+        <MovieItem movie={movies} onDeleteMovie={deleteMovieCard}/>
       </div>
     </>
   );

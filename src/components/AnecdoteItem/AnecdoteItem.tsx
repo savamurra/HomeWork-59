@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import AnecdoteBtn from "../AnecdoteBtn/AnecdoteBtn.tsx";
-import { i } from "vite/dist/node/types.d-aGj9QkWt";
 
 const AnecdoteItem = () => {
   const [anecdote, setAnecdote] = useState<{ id: string; value: string }[]>([]);

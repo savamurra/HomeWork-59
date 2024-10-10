@@ -9,7 +9,6 @@ interface Props {
 const MovieForm:React.FC<Props> = ({addNewMovie}) => {
   const [newMovie, setNewMovie] = useState<MovieTypes>({
     title: '',
-    number: 0,
     id: ''
   })
 
@@ -19,7 +18,6 @@ const MovieForm:React.FC<Props> = ({addNewMovie}) => {
         ...prevState,
         [e.target.name]: e.target.value,
         id: crypto.randomUUID(),
-        number: newMovie.number++
       }
     })
   }
@@ -27,11 +25,19 @@ const MovieForm:React.FC<Props> = ({addNewMovie}) => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    addNewMovie({
-      ...newMovie,
-      number: newMovie.number,
-      id: crypto.randomUUID()
-    });
+    if (newMovie.title.trim().length > 0) {
+      addNewMovie({
+        ...newMovie,
+        id: crypto.randomUUID()
+      });
+    } else {
+      alert('Заполните поле для ввода')
+    }
+
+    setNewMovie({
+      title: '',
+      id: ''
+    })
   }
 
 

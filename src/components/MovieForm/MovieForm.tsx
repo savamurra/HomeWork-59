@@ -32,8 +32,8 @@ const MovieForm:React.FC<Props> = ({addNewMovie}) => {
       number: newMovie.number,
       id: crypto.randomUUID()
     });
-
   }
+
 
   return (
     <form onSubmit={onSubmit}>

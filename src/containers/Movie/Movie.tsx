@@ -16,6 +16,8 @@ const Movie = () => {
 
     setMovies(copyMovie);
   };
+
+
   return (
     <>
       <div className='container'>

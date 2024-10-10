@@ -1,9 +1,9 @@
-import AnecdoteItem from '../../components/AnecdoteItem/AnecdoteItem.tsx';
+import AnecdoteItem from "../../components/AnecdoteItem/AnecdoteItem.tsx";
 
 const Anecdote = () => {
   return (
     <div>
-      <AnecdoteItem/>
+      <AnecdoteItem />
     </div>
   );
 };
